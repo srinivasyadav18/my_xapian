@@ -1,4 +1,4 @@
 #include "first.hpp"
 void print(){
-	printf("hello world from lib");
+	printf("cmake from first header file...");
 }
