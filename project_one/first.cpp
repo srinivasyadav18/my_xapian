@@ -1,4 +1,4 @@
-#include "first.h"
+#include "first.hpp"
 void print(){
-	printf("hello world");
+	printf("hello world from lib");
 }
