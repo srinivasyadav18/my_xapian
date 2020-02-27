@@ -2,13 +2,8 @@ package main
 /*
  #cgo CFLAGS: -g -Wall
  #include <stdlib.h>
-  int greet(const char *name, int year, char *out) {
-    int n;
-    
-    n = sprintf(out, "Greetings, %s from %d! We come in peace :)", name, year);
+ #include "greeter.h"
 
-    return n;
-}
  */
 import "C"
 import (
@@ -17,16 +12,18 @@ import (
 )
 
 func main() {
-	name := C.CString("Gopher")
-	defer C.free(unsafe.Pointer(name))
+	// name := C.CString("Gopher")
+	// defer C.free(unsafe.Pointer(name))
 
-	year := C.int(2018)
+	// year := C.int(2018)
 
-	ptr := C.malloc(C.sizeof_char * 1024)
-	defer C.free(unsafe.Pointer(ptr))
+	// ptr := C.malloc(C.sizeof_char * 1024)
+	// defer C.free(unsafe.Pointer(ptr))
 
-	size := C.greet(name, year, (*C.char)(ptr))
+	// size := C.greet(name, year, (*C.char)(ptr))
 
-	b := C.GoBytes(ptr, size)
-	fmt.Println(string(b))
+	// b := C.GoBytes(ptr, size)
+	// fmt.Println(string(b))
+	ptr=C.greet();
+	fmt.Println(ptr)
 }
